@@ -1,95 +1,3 @@
-
-// import { createContext, useContext, useState, useEffect } from 'react';
-
-// const AuthContext = createContext();
-
-// export const useAuth = () => {
-//   return useContext(AuthContext);
-// };
-
-// export const AuthProvider = ({ children }) => {
-//   const [currentUser, setCurrentUser] = useState(null);
-//   const [token, setToken] = useState(localStorage.getItem('token'));
-//   const [loading, setLoading] = useState(true);
-
-//   useEffect(() => {
-//     const storedToken = localStorage.getItem('token');
-//     if (storedToken) {
-//       setToken(storedToken);
-//       // You could fetch user data here if needed
-//       setCurrentUser({ token: storedToken });
-//     }
-//     setLoading(false);
-//   }, []);
-
-//   const login = async (email, password) => {
-//     try {
-//       const response = await fetch('http://localhost:3000/login', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({ email, password }),
-//       });
-
-//       const data = await response.json();
-
-//       if (!response.ok) {
-//         throw new Error(data.error || 'Login failed');
-//       }
-
-//       localStorage.setItem('token', data.token);
-//       setToken(data.token);
-//       setCurrentUser({ token: data.token });
-//       return { success: true };
-//     } catch (error) {
-//       return { success: false, error: error.message };
-//     }
-//   };
-
-//   const signup = async (email, password) => {
-//     try {
-//       const response = await fetch('http://localhost:3000/signup', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({ email, password }),
-//       });
-
-//       const data = await response.json();
-
-//       if (!response.ok) {
-//         throw new Error(data.error || 'Signup failed');
-//       }
-
-//       return { success: true };
-//     } catch (error) {
-//       return { success: false, error: error.message };
-//     }
-//   };
-
-//   const logout = () => {
-//     localStorage.removeItem('token');
-//     setToken(null);
-//     setCurrentUser(null);
-//   };
-
-//   const value = {
-//     currentUser,
-//     token,
-//     login,
-//     signup,
-//     logout,
-//     isAuthenticated: !!token,
-//   };
-
-//   return (
-//     <AuthContext.Provider value={value}>
-//       {!loading && children}
-//     </AuthContext.Provider>
-//   );
-// };
 import { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
@@ -117,7 +25,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await fetch('https://inventory-management-iota-gold.vercel.app/login', {
+      const response = await fetch('https://inventory-management-two-tau.vercel.app//login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -131,7 +39,6 @@ export const AuthProvider = ({ children }) => {
         throw new Error(data.error || 'Login failed');
       }
 
-      // Parse the JWT token to extract the userId
       const tokenParts = data.token.split('.');
       const tokenPayload = JSON.parse(atob(tokenParts[1]));
       const userId = tokenPayload.userId;
@@ -149,7 +56,7 @@ export const AuthProvider = ({ children }) => {
 
   const signup = async (email, password) => {
     try {
-      const response = await fetch('https://inventory-management-iota-gold.vercel.app/signup', {
+      const response = await fetch('https://inventory-management-two-tau.vercel.app//signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
