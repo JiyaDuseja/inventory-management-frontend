@@ -117,7 +117,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await fetch('http://localhost:3000/login', {
+      const response = await fetch('https://inventory-management-iota-gold.vercel.app/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -149,7 +149,7 @@ export const AuthProvider = ({ children }) => {
 
   const signup = async (email, password) => {
     try {
-      const response = await fetch('http://localhost:3000/signup', {
+      const response = await fetch('https://inventory-management-iota-gold.vercel.app/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
