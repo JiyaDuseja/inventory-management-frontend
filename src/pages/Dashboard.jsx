@@ -24,7 +24,7 @@ const Dashboard = () => {
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      const response = await fetch('https://inventory-management-two-tau.vercel.app//products', {
+      const response = await fetch('https://inventory-management-two-tau.vercel.app/products', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -64,7 +64,7 @@ const Dashboard = () => {
   const handleAddProduct = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://inventory-management-two-tau.vercel.app//products', {
+      const response = await fetch('https://inventory-management-two-tau.vercel.app/products', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ const Dashboard = () => {
 
   const handleUpdateProduct = async (productId, updatedData) => {
     try {
-      const response = await fetch(`https://inventory-management-two-tau.vercel.app//products/${productId}`, {
+      const response = await fetch(`https://inventory-management-two-tau.vercel.app/products/${productId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -130,7 +130,7 @@ const Dashboard = () => {
 
   const handleDeleteProduct = async (id) => {
     try {
-      const response = await fetch(`https://inventory-management-two-tau.vercel.app//products/${id}`, {
+      const response = await fetch(`https://inventory-management-two-tau.vercel.app/products/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
